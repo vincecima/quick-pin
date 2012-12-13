@@ -1,6 +1,8 @@
 {
   "name": "Quick Pin",
-  "version": "1.0",
+  "version": "1.1",
+  "manifest_version": 2,
+
   "description": "Load the Pinboard.in add page inline and close the tab on finish.",
   "icons": {
       "128": "pinboard128.png",
@@ -8,10 +10,15 @@
       "32": "pinboard32.png",
       "48": "pinboard48.png"
    },
+
   "browser_action": {
     "default_icon": "pinboard16.png"
   },
-  "background_page": "background.html",
+
+  "background": {
+    "scripts": ["events_handler.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
