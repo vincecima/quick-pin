@@ -11,7 +11,13 @@ chrome.extension.onRequest.addListener(
       chrome.tabs.update(null, {url: destURL}, null);
     }
     else if (request.action === "submit_pinboard_form_ajax") {
-      chrome.tabs.remove(sender.tab.id);
+      var returnToPage = request.returnToPage;
+      if(returnToPage) {
+        chrome.tabs.update(sender.tab.id, {url: request.originalURL});
+      }
+      else {
+        chrome.tabs.remove(sender.tab.id);
+      }
     }
   }
 );
