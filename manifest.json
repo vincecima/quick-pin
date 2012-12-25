@@ -21,7 +21,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://pinboard.in/add*"],
       "js": ["jquery-1.8.3.min.js", "submit_pinboard_form_ajax.js"]
     }
   ],
