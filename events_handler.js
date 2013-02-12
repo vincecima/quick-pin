@@ -1,4 +1,4 @@
-chrome.extension.onRequest.addListener(
+chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
     sendResponse({});
     if (request.action === "capture_tab_info") {

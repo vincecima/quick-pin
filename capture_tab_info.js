@@ -5,4 +5,4 @@ var additionalInfo = {
   "location": location.href
 };
 
-chrome.extension.sendRequest(additionalInfo);
+chrome.extension.sendMessage(additionalInfo);
