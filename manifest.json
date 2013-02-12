@@ -15,6 +15,8 @@
     "default_icon": "pinboard16.png"
   },
 
+  "options_page": "options.html",
+
   "background": {
     "scripts": ["events_handler.js"],
     "persistent": false
@@ -26,6 +28,8 @@
     }
   ],
   "permissions": [
-    "tabs", "<all_urls>"
+    "tabs",
+    "<all_urls>",
+    "storage"
   ]
 }
