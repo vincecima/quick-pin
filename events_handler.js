@@ -2,12 +2,12 @@ chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
     sendResponse({});
     if (request.action === "capture_tab_info") {
-      var destURL = "https://pinboard.in/add?"
+      var destURL = "https://pinboard.in/add?";
       destURL += "next=same";
-      destURL += "&url=" + encodeURIComponent(request.location)
-      destURL += "&description=" + encodeURIComponent(request.selection)
-      destURL += "&title=" + encodeURIComponent(request.title)
-      destURL += "&source=quick_pin"
+      destURL += "&url=" + encodeURIComponent(request.location);
+      destURL += "&description=" + encodeURIComponent(request.selection);
+      destURL += "&title=" + encodeURIComponent(request.title);
+      destURL += "&source=quick_pin";
       chrome.tabs.update(sender.tab.id, {url: destURL}, null);
     }
     else if (request.action === "submit_pinboard_form_ajax") {
