@@ -8,10 +8,25 @@ chrome.extension.onMessage.addListener(
       destURL += "&description=" + encodeURIComponent(request.selection);
       destURL += "&title=" + encodeURIComponent(request.title);
       destURL += "&source=quick_pin";
-      chrome.tabs.update(sender.tab.id, {url: destURL}, null);
+
+      chrome.storage.sync.get({'behavior': 'close'}, function(values){
+        var behavior_value = values['behavior'];
+        switch(behavior_value){
+          case "close":
+            chrome.tabs.update(sender.tab.id, {url: destURL}, null);
+            break;
+        }
+      });
     }
     else if (request.action === "submit_pinboard_form_ajax") {
-      chrome.tabs.remove(sender.tab.id);
+      chrome.storage.sync.get({'behavior': 'close'}, function(values){
+        var behavior_value = values['behavior'];
+        switch(behavior_value){
+          case "close":
+            chrome.tabs.remove(sender.tab.id);
+            break;
+        }
+      });
     }
   }
 );
