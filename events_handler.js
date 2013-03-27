@@ -22,6 +22,9 @@ chrome.extension.onMessage.addListener(
       chrome.storage.sync.get({'behavior': 'close'}, function(values){
         var behavior_value = values['behavior'];
         switch(behavior_value){
+          case "return":
+            chrome.tabs.update(sender.tab.id, {url: request.location}, null);
+            break;
           case "close":
             chrome.tabs.remove(sender.tab.id);
             break;
