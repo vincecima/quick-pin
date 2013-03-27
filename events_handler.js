@@ -1,6 +1,5 @@
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
-    sendResponse({});
     if (request.action === "capture_tab_info") {
       var destURL = "https://pinboard.in/add?";
       destURL += "next=same";
@@ -12,6 +11,7 @@ chrome.extension.onMessage.addListener(
       chrome.storage.sync.get({'behavior': 'close'}, function(values){
         var behavior_value = values['behavior'];
         switch(behavior_value){
+          case "return":
           case "close":
             chrome.tabs.update(sender.tab.id, {url: destURL}, null);
             break;
