@@ -15,6 +15,9 @@ chrome.extension.onMessage.addListener(
           case "close":
             chrome.tabs.update(sender.tab.id, {url: destURL}, null);
             break;
+          case "popup":
+            chrome.windows.create({url: destURL, type: "popup", width: 700, height: 350}, null);
+            break;
         }
       });
     }
@@ -25,6 +28,7 @@ chrome.extension.onMessage.addListener(
           case "return":
             chrome.tabs.update(sender.tab.id, {url: request.location}, null);
             break;
+          case "popup":
           case "close":
             chrome.tabs.remove(sender.tab.id);
             break;
