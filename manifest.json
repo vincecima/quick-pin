@@ -1,6 +1,6 @@
 {
   "name": "Quick Pin",
-  "version": "2.0",
+  "version": "2.1",
   "manifest_version": 2,
 
   "description": "Load the Pinboard.in add page inline and close the tab on finish.",
